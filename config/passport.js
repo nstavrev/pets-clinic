@@ -19,6 +19,7 @@ passport.use(new LocalStrategy({
   function(email, password, done) {
 
     User.findOne({ email: email }, function (err, user) {
+      console.log("finding user");
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect email.' });
@@ -41,3 +42,17 @@ passport.use(new LocalStrategy({
     });
   }
 ));
+/*
+  if we use this sails logs a warning that applying passport middleware like this is deprecated and we must define it in http.js
+  but if we do that the middle is not being defined and its not useable so we are doing like that 
+*/
+module.exports = {
+  express: {
+    customMiddleware: function(app){
+      console.log('Express midleware for passport');
+      app.use(passport.initialize());
+      app.use(passport.session());
+    }
+  }
+};
+
