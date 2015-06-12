@@ -1,0 +1,9 @@
+<div ng-controller="authController">
+<h1>Login</h1>
+	<p ng-if="errorMsg">
+		{{errorMsg}}
+	</p>
+  <input ng-model="email" type="email" name="email">
+  <input ng-model="password" type="password" name="password">
+  <button ng-click="login(email,password)">Login</button>
+</div>

@@ -14,20 +14,13 @@ module.exports = {
         rest: false
     },
     login: function(req, res) {
-    	console.log("login");
         passport.authenticate('local', function(err, user, info) {
             if ((err) || (!user)) {
-                return res.send({
-                    message: info.message,
-                    user: user
-                });
+                return res.status(401).send("Invalid username or password");
             }
             req.login(user, function(err) {
                 if (err) return res.send(err);
-                return res.send({
-                    message: info.message,
-                    user: user
-                });
+                return res.send("Authentication successful")
             });
 
         })(req, res);

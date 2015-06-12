@@ -33,20 +33,23 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
+    view: 'index'
   },
-
-  'get /login': {
-       view: 'login'
+  '/home' : {
+    view : 'home',
+    locals : {
+      layout : null
+    }
   },
-
+  'get /auth': {
+    view: 'auth',
+    locals : {
+      layout : null
+    }
+  },
+  'get /user' : 'UserController.profile',
   'post /login': 'AuthController.login',
-
-  '/logout': 'AuthController.logout',
-
-  'get /signup': {
-    view: 'signup'
-  }
+  '/logout': 'AuthController.logout'
 
   /***************************************************************************
   *                                                                          *

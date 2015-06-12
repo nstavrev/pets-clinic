@@ -7,7 +7,7 @@
 
 module.exports = {
 	profile : function(req,res){
-		return res.view();
+		return res.view({layout : null});
 	}
 };
 
