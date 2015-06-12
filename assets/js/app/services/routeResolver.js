@@ -34,12 +34,12 @@ define([], function () {
 
         this.route = function (routeConfig) {
 
-            var resolve = function (baseName, path, secure) {
+            var resolve = function (baseName, controller, path) {
                     if (!path) path = '';
                     var routeDef = {};
                     routeDef.templateUrl = function(params) {
                         if(params){
-                            var baseRoute = routeConfig.getViewsDirectory() + path + baseName + "?";
+                            var baseRoute = routeConfig.getViewsDirectory() + baseName + path + "?";
                             var paramKeys = Object.keys(params);
                             paramKeys.forEach(function(key, index){
                                 if(index < paramKeys.length - 1){
@@ -51,18 +51,19 @@ define([], function () {
                             });
                             return baseRoute;
                         }
-                        return routeConfig.getViewsDirectory() + path + baseName;
+                        return routeConfig.getViewsDirectory() + baseName + path;
                     };
+                    
+                    if(controller){
+                        routeDef.controller = controller + 'Controller';
 
-                    routeDef.controller = baseName + 'Controller';
-                    routeDef.secure = (secure) ? secure : false;
-
-                    routeDef.resolve = {
-                        load: ['$q', '$rootScope', function ($q, $rootScope) {
-                            var dependencies = [routeConfig.getControllersDirectory() + path + baseName + 'Controller.js'];
-                            return resolveDependencies($q, $rootScope, dependencies);
-                        }]
-                    };
+                        routeDef.resolve = {
+                            load: ['$q', '$rootScope', function ($q, $rootScope) {
+                                var dependencies = [routeConfig.getControllersDirectory() + controller + 'Controller.js'];
+                                return resolveDependencies($q, $rootScope, dependencies);
+                            }]
+                        };
+                    }
 
                     return routeDef;
                 },

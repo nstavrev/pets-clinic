@@ -11,7 +11,20 @@ define(['app'], function (app) {
       			function(error){
       				$scope.errorMsg = "Invalid Username or password";
       			}
-      		)
+      		);
       };
+
+      $scope.signup = function(user) {
+      	AuthService.signup(user)
+      	.then(
+      		function(result){
+      			window.location.replace("/");
+      		},
+      		function(error){
+      			$scope.errorMsg = "Invalid data";
+      		}
+      	);
+      };
+
     });
 });

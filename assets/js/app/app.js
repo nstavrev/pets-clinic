@@ -20,9 +20,9 @@ define(['services/routeResolver'], function () {
             //Define routes - controllers will be loaded dynamically
             var route = routeResolverProvider.route;
             $routeProvider
-                .when('/', route.resolve('home'))
-                .when('/profile', route.resolve('user'))
-                .when('/login', route.resolve('auth'))
+                .when('/', route.resolve('home', 'home'))
+                .when('/profile', route.resolve('user', 'user', '/profile'))
+                .when('/signup', route.resolve('signup'))
         }]);
 
     return app;

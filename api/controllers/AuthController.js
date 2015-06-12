@@ -25,6 +25,12 @@ module.exports = {
 
         })(req, res);
     },
+    signup : function(req,res){
+        User.create(req.body, function(err, user){
+            if(err) throw err;
+            res.send("Registration successful");
+        });
+    },
     logout: function(req, res) {
         req.logout();
         res.redirect('/');

@@ -12,6 +12,13 @@ define(['app'], function (app) {
       					password : password
       				}
       			})
+      		},
+      		signup : function(user) {
+      			return $http({
+      				url : '/signup',
+      				method : 'POST',
+      				data : user
+      			});
       		}
         }
     });

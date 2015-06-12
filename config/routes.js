@@ -47,8 +47,14 @@ module.exports.routes = {
       layout : null
     }
   },
-  'get /user' : 'UserController.profile',
+  'get /signup' : {
+    view : 'signup',
+    locals : {
+      layout : null
+    }
+  },
   'post /login': 'AuthController.login',
+  'post /signup' : 'AuthController.signup',
   '/logout': 'AuthController.logout'
 
   /***************************************************************************
