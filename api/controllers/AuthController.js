@@ -13,6 +13,12 @@ module.exports = {
         shortcuts: false,
         rest: false
     },
+    currentUser : function(req,res){
+        if(req.user){
+            return res.json(req.user.username);
+        }
+        return res.send(undefined);
+    },
     login: function(req, res) {
         passport.authenticate('local', function(err, user, info) {
             if ((err) || (!user)) {
@@ -27,9 +33,12 @@ module.exports = {
     },
     signup : function(req,res){
         User.create(req.body, function(err, user){
-            if(err) throw err;
+            if(err)  throw err;
             res.send("Registration successful");
         });
+    },
+    signin : function(req,res){
+        res.view("auth");
     },
     logout: function(req, res) {
         req.logout();

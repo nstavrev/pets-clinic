@@ -23,6 +23,7 @@ define(['services/routeResolver'], function () {
                 .when('/', route.resolve('home', 'home'))
                 .when('/profile', route.resolve('user', 'user', '/profile'))
                 .when('/signup', route.resolve('signup'))
+                .when('/auth', route.resolve('auth'))
         }]);
 
     return app;

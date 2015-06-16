@@ -1,7 +1,10 @@
 define(['app'], function (app) {
     app.controller('authController', function($scope, $location, AuthService){
       console.log("auth controller");
-
+      AuthService.getCurrentUser().success(function(data){
+            $scope.currentUser = data;
+      });
+      
       $scope.login = function(email,password) {	
       		AuthService.login(email,password)
       		.then(

@@ -53,6 +53,7 @@ module.exports.routes = {
       layout : null
     }
   },
+  'get /currentUser' : 'AuthController.currentUser',
   'post /login': 'AuthController.login',
   'post /signup' : 'AuthController.signup',
   '/logout': 'AuthController.logout'

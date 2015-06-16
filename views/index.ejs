@@ -1,1 +1,28 @@
-<div ng-view autoscroll="true" class="fade-in-out"></div>
+<div class="container" ng-controller="authController">
+            <br>
+            <br>
+            <div class="pull-right">
+            	<a ng-if="!currentUser" ng-href="#/auth" class="btn btn-mg btn-primary">Login</a>
+            	<p ng-if="currentUser">{{currentUser}}</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/logo.png" alt="logo" class="img-responsive">
+                    <br>
+                    <br>
+                    <br>
+                    <button class="btn btn-primary btn-block">
+                        Начало
+                    </button>
+                    <button class="btn btn-warning btn-block">
+                        Обяви
+                    </button>
+                    <button class="btn btn-success btn-block">
+                        Ветеринарни клиники
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <div ng-view autoscroll="true" class="fade-in-out"></div>
+                </div>
+            </div>
+        </div>

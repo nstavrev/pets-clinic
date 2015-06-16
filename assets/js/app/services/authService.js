@@ -3,6 +3,9 @@ define(['app'], function (app) {
     app.factory('AuthService', function($http){
 
         return {
+           getCurrentUser : function(){
+            return $http.get('/currentUser');
+           },
            login : function(email, password){
       			return $http({
       				url : '/login',
