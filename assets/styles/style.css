@@ -1,0 +1,49 @@
+.wrapper{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.login-form, .page-section{
+	margin-top: 30px;
+}
+.navigation{
+	margin-top: 30px;
+}
+.navigation .btn{
+	margin-bottom: 20px;
+}
+.mt-20{
+	margin-top: 20px;
+}
+input, select, label{
+	
+}
+label{
+	line-height: 34px; 
+}
+.form-control{
+	display: inline;
+	width: 50%;
+}
+.location{
+	line-height: 16px;
+}
+.link{
+	display: block;
+	margin-top: 10px;
+}
+.bold{
+	font-weight: bold;
+}
+.italic{
+	font-style: italic;
+}
+.underline{
+	text-decoration: underline;
+}
+.inline{
+	display: inline;
+}
+.results-list{
+	list-style: none;
+	padding-left: 20px;
+}

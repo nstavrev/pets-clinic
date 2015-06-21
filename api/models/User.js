@@ -20,10 +20,19 @@ module.exports = {
 	        minLength: 6,
 	        required: true
 	    },
-        // pet : {
-        //     model : 'Pet',
-        //     required : true
-        // },
+        info : {
+            type : 'string'
+        },
+        pet : {
+            model : 'Pet'
+        },
+        active : {
+            type : 'boolean',
+            required : true
+        },
+        lastLogin : {
+            type : 'date'
+        },
 	    toJSON: function() {
             var obj = this.toObject();
             delete obj.password;

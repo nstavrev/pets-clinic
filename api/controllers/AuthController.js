@@ -15,9 +15,9 @@ module.exports = {
     },
     currentUser : function(req,res){
         if(req.user){
-            return res.json(req.user.username);
+            return res.json(req.user.email);
         }
-        return res.send(undefined);
+        return res.status(401).send();
     },
     login: function(req, res) {
         passport.authenticate('local', function(err, user, info) {
@@ -32,6 +32,8 @@ module.exports = {
         })(req, res);
     },
     signup : function(req,res){
+        var user = req.body;
+        user.active = true;
         User.create(req.body, function(err, user){
             if(err)  throw err;
             res.send("Registration successful");

@@ -1,0 +1,39 @@
+<div class="col-md-7">
+	<div class="text-center">
+		<h1>Редакция на профил</h1>
+	</div>
+	<div class="col-md-4">
+		<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRYE_TG-CV7JVFUdS6u7M9K5mN-pgB54vqI4nD6RcVe1mhtts3E" alt="Profile Image" class="img-responsive">
+	</div>
+	<div class="col-md-8">
+		<p>
+			<b>Потребител:</b> {{user.email}}
+		</p>
+		<div class="form-group row">
+			<label class="col-xs-6">Домашен любимец:</label> 
+			<select ng-model="user.pet" class="form-control col-xs-6">
+				<option ng-selected="user.pet.id == pet.id" ng-repeat="pet in pets" value="{{pet.id}}">{{pet.kind}}</option>
+			</select>
+		</div>
+		<!-- <p class="bold underline">Смяна на парола</p>
+		<div class="form-group row">
+			<label class="col-xs-6">Стара парола:</label> 
+			<input id="" type="password" class="form-control col-xs-6">
+		</div>
+		<div class="form-group row">
+			<label class="col-xs-6">Нова парола:</label> 
+			<input id="" type="password" class="form-control col-xs-6">
+		</div>
+		<div class="form-group row">
+			<label class="col-xs-6">Повтори парола:</label> 
+			<input id="" type="password" class="form-control col-xs-6">
+		</div> -->
+		<div class="form-group row">
+			<label class="col-xs-6">За мен:</label> 
+			<textarea ng-model="user.info" class="form-control col-xs-6"></textarea>
+		</div>
+		<div class="text-center">
+			<button ng-click="editAccount()" class="btn btn-success">Редактирай</button>
+		</div>
+	</div>
+</div>
