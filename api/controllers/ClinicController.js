@@ -6,6 +6,8 @@
  */
 
 module.exports = {
-	
+	clinics : function(req,res){
+		return res.view({layout : null});
+	}	
 };
 

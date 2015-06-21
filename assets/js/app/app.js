@@ -2,7 +2,7 @@
 
 define(['services/routeResolver'], function () {
 
-    var app = angular.module('pets-clinic', ['routeResolverServices','ngRoute', 'cgNotify']);
+    var app = angular.module('pets-clinic', ['routeResolverServices','ngRoute', 'cgNotify', 'ngMap']);
 
     app.config(['$routeProvider', 'routeResolverProvider', '$controllerProvider',
         '$compileProvider', '$filterProvider', '$provide','$locationProvider',
@@ -25,6 +25,7 @@ define(['services/routeResolver'], function () {
                 .when('/editProfile', route.resolve('user', 'user', '/editProfile'))
                 .when('/signup', route.resolve('signup'))
                 .when('/auth', route.resolve('auth'))
+                .when('/clinics', route.resolve('clinic', 'clinic','/clinics'))
         }]);
     
     app.filter('cmdate', [
