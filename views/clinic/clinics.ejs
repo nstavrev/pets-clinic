@@ -9,47 +9,36 @@
 					<label for="user-name" class="location">Въведете местоположение:</label>
 				</div>
 				<div class="col-md-6">
-					<input id="pass-retype" type="text" class="form-control">
-					<button class="btn-success mt-20">Намери</button>
+					<input id="pass-retype" ng-model="address" type="text" class="form-control">
+					<button ng-click="search(address)" ng-disabled="!address || address.length == 0" 
+					class="btn btn-success mt-20">Намери</button>
 				</div>
 			</div>
-			<div class="results mt-20">
-				<p class="bold">Намерени 3 клиники с адреси:</p>
+			<div ng-if="clinics.length > 0" class="results mt-20">
+				<p class="bold">Намерени {{clinics.length}} клиники с адреси:</p>
 				<ul class="results-list">
-					<li>Ветеринарен център Лукас, улица Веселец 10 (на 10 метра)</li>
-					<li>Ветеринарен център Лукас, улица Веселец 10 (на 10 метра)</li>
-					<li>Ветеринарен център Лукас, улица Веселец 10 (на 10 метра)</li>
+					<li ng-repeat="clinic in clinics">
+						{{clinic.address}}
+					</li>
 				</ul>
 				<p class="italic inline">Форма за записване на час при лекар:</p>
 				<a class="link inline" href="#">Запиши час</a>
 			</div>
+			<div ng-if="clinics.length == 0" class="results mt-20">
+				<p class="bold">Няма намерени клиники</p>
+			</div>
 		</div>
 		<div class="col-md-6">
 			  <div map-lazy-load="https://maps.google.com/maps/api/js">
-			      	<map center="41,-87" zoom="3">
+			      	<map id="map" center="42.696703, 23.319827" zoom="10">
 			      
-				        <info-window id="foo">
-				          <div ng-non-bindable="">
-				            Lat/Lng: {{this.getPosition()}}<br/>
-				            <ul>
-				              <li ng-repeat='item in store.items'>{{item}}</li>
-				            </ul>
-				          </div>
-				        </info-window>
-				        
-				        <marker ng-repeat="(id, store) in stores" id="{{id}}"
-				          position="{{store.position}}"
+				        <marker ng-repeat="clinic in clinics"
+				          position="{{clinic.position}}"
 				          on-click="showStore(event, id)"
-				        ></marker>
+				        >
+				    	</marker>
 				        
-				        <info-window id="bar">
-				          <div ng-non-bindable="">
-				            Lat: {{this.getPosition().lat()}}<br/>
-				            Lng: {{this.getPosition().lng()}}<br/>
-				          </div>
-				        </info-window>
 
-			        	<marker position="41, -79" on-click="showInfoWindow('bar')" />
 			      	</map>
 			    </div>
 		</div>

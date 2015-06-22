@@ -1,0 +1,25 @@
+<div class="col-md-7">
+	<div class="text-center">
+		<h1>Записване на час</h1>
+	</div>
+	<div class="row page-section">
+		<div class="col-md-8">
+			<div class="form-group row">
+				<label for="" class="col-xs-6">Изберете клиника:</label>
+				<select ng-model="appointment.clinic" ng-options="clinic.address for clinic in clinics" class="form-control col-xs-6">
+				</select>
+			</div>
+			<div class="form-group row">
+				<label for="" class="col-xs-6">Въведете дата:</label>
+				<input id="date" ng-model="appointment.date" type="text" class="form-control col-xs-6">
+			</div>
+			<div class="form-group row">
+				<label for="" class="col-xs-6">Изберете час:</label>
+				<input ng-model="appointment.hour" type="number" class="form-control col-xs-6">
+			</div>
+		</div>
+	</div>
+	<div class="text-center">
+		<button ng-click="create()" class="btn btn-success">Запиши</button>
+	</div>
+</div>

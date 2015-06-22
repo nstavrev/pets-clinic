@@ -10,6 +10,7 @@ require(
         'services/userService',
         'services/petService',
         'services/clinicService',
+        'services/appointmentService',
         'controllers/authController'
     ],
     function () {

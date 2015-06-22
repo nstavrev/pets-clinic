@@ -1,5 +1,5 @@
 /**
-* Location.js
+* Appointment.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -8,12 +8,16 @@
 module.exports = {
 
   attributes: {
-  	latitude : {
-  		type : 'float',
+  	clinic : {
+  		model : 'Clinic',
   		required : true
   	},
-  	longitude : {
-  		type : 'float',
+  	date : {
+  		type : "date",
+  		required : true
+  	},
+  	hour : {
+  		type : "integer",
   		required : true
   	}
   }

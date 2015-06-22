@@ -12,9 +12,9 @@ module.exports = {
   		type : "string",
   		required : true
   	},
-  	location : {
-  		model : 'Location',
-  		required : true
+  	position : {
+  		required : true,
+      type : 'array'
   	}
   }
 };

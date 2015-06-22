@@ -26,6 +26,7 @@ define(['services/routeResolver'], function () {
                 .when('/signup', route.resolve('signup'))
                 .when('/auth', route.resolve('auth'))
                 .when('/clinics', route.resolve('clinic', 'clinic','/clinics'))
+                .when('/appointment', route.resolve('appointment', 'appointment', '/appointment'))
         }]);
     
     app.filter('cmdate', [
