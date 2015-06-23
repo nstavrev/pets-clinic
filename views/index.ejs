@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <!-- included in all files-->
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTFtkwIHhBAiqQF43QqbVm3Gkd4AIwQ1oT8WVMcOYCadB-Bz1Pr" alt="logo" class="img-responsive">
                 <div class="navigation">
                     <a ng-href="#/" class="btn btn-primary btn-block">
@@ -17,6 +17,15 @@
                 </div>
             </div>
             <!-- end included in all files-->
+            <div ng-if="showLoginBtn" class="pull-right">
+               <div class="col-md-1 mt-20">
+                    <a ng-if="!currentUser" ng-href="#/auth" class="btn btn-success">Вход</a>
+                </div>
+                <div ng-if="currentUser" class="col-md-1 mt-20">
+                    <a ng-href="#/profile">{{currentUser}}</a>
+                    <a ng-href="/logout">Изход</a>
+                </div>
+            </div>
             <div ng-view autoscroll="true" class="fade-in-out"></div>
         </div>
     </div>

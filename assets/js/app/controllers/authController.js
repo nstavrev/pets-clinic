@@ -1,6 +1,10 @@
 define(['app'], function (app) {
-  app.controller('authController', function($scope, $timeout, $location, AuthService){
+  app.controller('authController', function($scope, $timeout, $location, $routeParams, AuthService){
     
+    $scope.$on('$routeChangeSuccess', function () {
+      $scope.showLoginBtn = $location.path() !== '/auth';
+    });
+
     AuthService.getCurrentUser().success(function(data){
         $scope.currentUser = data;
     });
