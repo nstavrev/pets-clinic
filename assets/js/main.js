@@ -11,6 +11,7 @@ require(
         'services/petService',
         'services/clinicService',
         'services/appointmentService',
+        'services/adService',
         'controllers/authController'
     ],
     function () {

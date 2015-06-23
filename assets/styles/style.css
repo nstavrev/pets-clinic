@@ -24,6 +24,10 @@ label{
 	display: inline;
 	width: 50%;
 }
+.form-control.width-auto{
+	display: block;
+	width: 100%;
+}
 .location{
 	line-height: 16px;
 }

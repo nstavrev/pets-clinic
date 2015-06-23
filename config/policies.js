@@ -31,6 +31,9 @@ module.exports.policies = {
   'UserController' : {
     '*' : 'sessionAuth'
   },
+  'AdController' : {
+    '*' : 'sessionAuth'
+  }
 
   /***************************************************************************
   *                                                                          *

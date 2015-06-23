@@ -1,0 +1,21 @@
+<div class="col-md-7">
+	<div ng-if="ad" class="text-center">
+		<h1>Обява номер</h1>
+		<h4>{{ad.id}}</h4>
+	</div>
+	<div ng-if="ad" class="row mt-20">
+		<div class="col-md-4">
+			<div class="text-center">
+				<img src="https://lh3.googleusercontent.com/-TJc2-TVmW3M/AAAAAAAAAAI/AAAAAAAABeU/o3gLbpzsxrE/photo.jpg" alt="" class="img-responsive">
+				<p>{{ad.user.email}}</p>
+				<button class="btn btn-success">Изпрати запитване</button>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<p>{{ad.content}}</p>
+		</div>
+	</div>
+	<div ng-if="notFound" class="text-center">
+		<h1>Обявата, която се опитвате да намерите не съществува</h1>
+	</div>
+</div>
