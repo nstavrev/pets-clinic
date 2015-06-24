@@ -9,7 +9,20 @@ module.exports = {
 	ad : function(req,res){
 		return res.view({layout : null});
 	},
+	my : function(req,res){
+		console.log(req.user.email);
+		User.findOne({email : req.user.email}, function(err, user){
+			Ad.find({user : user.id }).populate('user').exec(function(err, myAds){
+				if(err) throw err;
+				return res.json(myAds);
+			});
+		});
+		
+	},
 	postAd : function(req,res){
+		return res.view({layout : null });
+	},
+	ads : function(req,res){
 		return res.view({layout : null });
 	},
 	'' : function(req,res){

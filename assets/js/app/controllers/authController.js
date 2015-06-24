@@ -1,5 +1,5 @@
 define(['app'], function (app) {
-  app.controller('authController', function($scope, $timeout, $location, $routeParams, AuthService){
+  app.controller('authController', function($scope, $timeout, $window, $location, $routeParams, AuthService){
     
     $scope.$on('$routeChangeSuccess', function () {
       $scope.showLoginBtn = $location.path() !== '/auth';
@@ -13,7 +13,7 @@ define(['app'], function (app) {
           AuthService.login(email,password)
           .then(
                 function(result){
-                    window.location.replace("/");
+                    $window.location.reload();
                 }, 
                 function(error){
                     $scope.loginErrorMsg = "Invalid Username or password";
