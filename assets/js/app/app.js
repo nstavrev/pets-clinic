@@ -28,6 +28,7 @@ define(['services/routeResolver'], function () {
                 .when('/clinics', route.resolve('clinic', 'clinic','/clinics'))
                 .when('/appointment', route.resolve('appointment', 'appointment', '/appointment'))
                 .when('/ad/:id', route.resolve('ad', 'ad', '/ad'))
+                .when('/ad/:id/edit',route.resolve('ad', 'editAd', '/editAd'))
                 .when('/postAd', route.resolve('ad','postAd','/postAd'))
                 .when('/ads', route.resolve('ad','ads','/ads'))
                 .when('/ads/:my', route.resolve('ad','ads','/ads'))

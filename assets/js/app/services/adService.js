@@ -9,11 +9,21 @@ define(['app'], function (app) {
             return $http.get('/ad');
           },
           findAdById : function(id){
-            return $http.get('/ad/?id=' + id);
+            return $http.get('/ad/myAd/' + id);
+          },
+          findMyAdById : function(id) {
+            return $http.get('/ad/myAd/' + id);
           },
           create : function(ad) {
             return $http({
               url : "/ad/create",
+              method : "POST",
+              data : ad
+            });
+          },
+          edit : function(ad){
+            return $http({
+              url : "/ad/edit",
               method : "POST",
               data : ad
             });

@@ -13,7 +13,11 @@ define(['app'], function (app) {
           AuthService.login(email,password)
           .then(
                 function(result){
+                  if($location.path() == '/auth'){
+                    $window.location.replace('/');
+                  } else {
                     $window.location.reload();
+                  }
                 }, 
                 function(error){
                     $scope.loginErrorMsg = "Invalid Username or password";
@@ -28,7 +32,11 @@ define(['app'], function (app) {
        AuthService.signup(user)
        .then(
             function(result){
-                window.location.replace("/");
+              if($location.path() == '/signup'){
+                $window.location.replace("/")
+              } else {
+                $window.location.reload();
+              }
             },
             function(error){
                 $scope.signupErrorMsg = "Invalid data";

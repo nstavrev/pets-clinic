@@ -10,5 +10,6 @@ define(['app'], function (app) {
   			$scope.notFound = true;
   		}
   	);
+
   });
 });

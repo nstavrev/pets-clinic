@@ -1,0 +1,21 @@
+<div class="col-md-7">
+	<div class="text-center">
+		<h1>Редактиране на обява</h1>
+	</div>
+	<div class="row mt-20">
+		<div class="col-md-4">
+			<div class="text-center">
+				<img src="https://lh3.googleusercontent.com/-TJc2-TVmW3M/AAAAAAAAAAI/AAAAAAAABeU/o3gLbpzsxrE/photo.jpg" alt="" class="img-responsive">
+				<p>{{currentUser}}</p>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<textarea ng-model="ad.content" class="form-control width-auto" rows="10"></textarea>
+			<div class="mt-20 pull-right">
+				<button ng-click="delete()" class="btn btn-danger margin-right pull-right">Изтрий</button>
+				<button ng-click="edit()" class="btn btn-success margin-right pull-right">Запази промените</button>
+			</div>
+			
+		</div>
+	</div>
+</div>

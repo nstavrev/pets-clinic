@@ -7,8 +7,10 @@ define(['app'], function (app) {
         "sPageButtonActive":"active"
       }
     }
+    
+    $scope.my = $routeParams.my == 'my';
 
-    AdService.findAds($routeParams.my == 'my').success(function(data){
+    AdService.findAds($scope.my).success(function(data){
       $scope.ads = data;
     });
 
