@@ -10,20 +10,16 @@ module.exports = {
 		return res.view({layout : null});
 	},
 	my : function(req,res){
-		console.log(req.user.email);
-		User.findOne({email : req.user.email}, function(err, user){
-			Ad.find({user : user.id }).populate('user').exec(function(err, myAds){
-				if(err) throw err;
-				return res.json(myAds);
-			});
+		console.log(req.user.id);
+		Ad.find({user : req.user.id }).populate('user').exec(function(err, myAds){
+			if(err) throw err;
+			return res.json(myAds);
 		});
 	},
 	'myAd/:_id' : function(req,res){
 		console.log(req.params);
-		User.findOne({email : req.user.email }, function(err, user){
-			Ad.findOne({ id : req.params._id, user : user.id }).populate('user').exec(function(err, myAd){
-				return res.json(myAd);
-			});
+		Ad.findOne({ id : req.params._id, user : req.user.id }).populate('user').exec(function(err, myAd){
+			return res.json(myAd);
 		});
 	},
 	editAd : function(req,res){
@@ -44,27 +40,29 @@ module.exports = {
 	},
 	create : function(req,res){
 		var ad = req.body;
-		User.findOne({email : req.user.email }, function(err, user){
-			ad.user = user.id;
-			Ad.create(ad, function(err, ad){
-				if(err) return res.status(400).send("Invalid ad")
-				return res.send("Ad created successfully");
-			});
+		ad.user = req.user.id;
+		Ad.create(ad, function(err, ad){
+			if(err) return res.status(400).send("Invalid ad")
+			return res.send("Ad created successfully");
 		});
 	},
 	edit : function(req,res){
 		var ad = req.body;
-		User.findOne({email : req.user.email }, function(err, user){
-			ad.user = user;
-			Ad.update({ id : ad.id, user : user.id }, { content : ad.content }, function(err, result){
-				if(err) {
-					console.log(err);
-				}
-				return res.send("Ad updated successfully");
-			});
+		console.log(req.user.id + "aaa");
+		ad.user = req.user.id;
+		Ad.update({ id : ad.id, user : req.user.id }, { content : ad.content }, function(err, result){
+			if(err) {
+				console.log(err);
+			}
+			return res.send("Ad updated successfully");
 		});
 	},
 	remove : function(req,res){
+		console.log(req.params.all());
+		Ad.destroy({id : req.params.all()['id'], user : req.user.id }, function(err, result){
+			if(err) throw err;
+			res.send("Ad removed successfully");
+		});
 	}
 };
 

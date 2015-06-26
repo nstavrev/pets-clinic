@@ -9,7 +9,7 @@ define(['app'], function (app) {
             return $http.get('/ad');
           },
           findAdById : function(id){
-            return $http.get('/ad/myAd/' + id);
+            return $http.get('/ad/?id=' + id);
           },
           findMyAdById : function(id) {
             return $http.get('/ad/myAd/' + id);
@@ -26,6 +26,12 @@ define(['app'], function (app) {
               url : "/ad/edit",
               method : "POST",
               data : ad
+            });
+          },
+          remove : function(id){
+            return $http({
+              url : "/ad/remove?id=" + id,
+              method : "DELETE"
             });
           }
         }
