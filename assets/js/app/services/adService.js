@@ -16,7 +16,7 @@ define(['app'], function (app) {
           },
           create : function(ad) {
             return $http({
-              url : "/ad/create",
+              url : "/ad/create", 
               method : "POST",
               data : ad
             });
