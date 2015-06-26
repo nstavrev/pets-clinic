@@ -63,6 +63,8 @@ module.exports = {
 				return res.send("Ad updated successfully");
 			});
 		});
+	},
+	remove : function(req,res){
 	}
 };
 

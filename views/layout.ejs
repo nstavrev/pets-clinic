@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>New Sails App</title>
+<head>
+  <title>Pets Clinic</title>
 
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!--  
         Stylesheets and Preprocessors
         ==============================
@@ -26,18 +24,50 @@
             + Change the order of your CSS files
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
-    -->
-    <link rel="stylesheet" type="text/css" href="/js/bower_components/angular/angular-csp.css">
-    <link rel="stylesheet" type="text/css" href="/js/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/js/bower_components/angular-notify/dist/angular-notify.min.css">
-    <link rel="stylesheet" type="text/css" href="/styles/style.css">
-    <link rel="stylesheet" type="text/css" href="/js/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css">
-    
-    <link rel="stylesheet" type="text/css" href="/js/bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css">
-  </head>
+          -->
+          <link rel="stylesheet" type="text/css" href="/js/bower_components/angular/angular-csp.css">
+          <link rel="stylesheet" type="text/css" href="/js/bower_components/bootstrap/dist/css/bootstrap.min.css">
+          <link rel="stylesheet" type="text/css" href="/js/bower_components/angular-notify/dist/angular-notify.min.css">
+          <link rel="stylesheet" type="text/css" href="/styles/style.css">
+          <link rel="stylesheet" type="text/css" href="/js/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css">
+          
+          <link rel="stylesheet" type="text/css" href="/js/bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css">
+        </head>
 
-  <body ng-cloak>
-    <%- body %>
+        <body ng-cloak>
+          <div ng-controller="authController" class="wrapper">
+            <div class="container">
+              <div class="row">
+                <!-- included in all files-->
+                <div class="col-md-4">
+                  <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTFtkwIHhBAiqQF43QqbVm3Gkd4AIwQ1oT8WVMcOYCadB-Bz1Pr" alt="logo" class="img-responsive">
+                  <div class="navigation">
+                    <a ng-href="#/" class="btn btn-primary btn-block">
+                      Начало
+                    </a>
+                    <a ng-href="#/ads" class="btn btn-warning btn-block">
+                      Обяви
+                    </a>
+                    <a ng-href="#/clinics" class="btn btn-success btn-block">
+                      Ветеринарни клиники
+                    </a>
+                  </div>
+                </div>
+                <!-- end included in all files-->
+                <div ng-if="showLoginBtn" class="pull-right">
+                 <div class="col-md-1 mt-20">
+                  <a ng-if="!currentUser" ng-href="#/auth" class="btn btn-success">Вход</a>
+                </div>
+                <div ng-if="currentUser" class="col-md-1 mt-20">
+                  <a ng-href="#/profile">{{currentUser}}</a>
+                  <a ng-href="/logout">Изход</a>
+                </div>
+              </div>
+              <div ng-view autoscroll="true" class="fade-in-out"></div>
+            </div>
+          </div>
+        </div><!-- end div.wrapper -->
+
     <!--
         Client-side Templates
         ========================
@@ -57,11 +87,11 @@
             + Use a different template engine (handlebars, jade, dust, etc.)
             + Internationalize your client-side templates using a server-side
               stringfile before they're served.
-    -->
+            -->
 
-    <!--TEMPLATES-->
-    
-    <!--TEMPLATES END-->
+            <!--TEMPLATES-->
+            
+            <!--TEMPLATES END-->
 
 
     <!--
@@ -85,30 +115,30 @@
           + Import scripts from other directories
           + Use a different preprocessor, like TypeScript
 
-    -->
-    <!-- Jquery -->
-    <script src="/js/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Jquery UI -->
-    <script src="/js/bower_components/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Jquery Datatables -->
-    <script src="/js/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Angular -->
-    <script src="/js/bower_components/angular/angular.min.js"></script>
-    <!-- Angular Route -->
-    <script src="/js/bower_components/angular-route/angular-route.min.js"></script>
-    <!-- Angular Notify -->
-    <script src="/js/bower_components/angular-notify/dist/angular-notify.min.js"></script>
-    <!-- Angular Google Maps -->
-    <script src="/js/bower_components/ngmap/build/scripts/ng-map.min.js"></script>
-    <!-- Angular Datatables  -->
-    <script src="/js/bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
-    <!-- Angular Datatables Bootstrap -->
-    <script src="/js/bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
-    <!-- RequireJS -->
-    <script src="/js/require.js"></script>
-    <!-- Main.js -->
-    <script src="/js/main.js"></script>
-  </body>
-</html>
+        -->
+        <!-- Jquery -->
+        <script src="/js/bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Jquery UI -->
+        <script src="/js/bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Jquery Datatables -->
+        <script src="/js/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- Angular -->
+        <script src="/js/bower_components/angular/angular.min.js"></script>
+        <!-- Angular Route -->
+        <script src="/js/bower_components/angular-route/angular-route.min.js"></script>
+        <!-- Angular Notify -->
+        <script src="/js/bower_components/angular-notify/dist/angular-notify.min.js"></script>
+        <!-- Angular Google Maps -->
+        <script src="/js/bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+        <!-- Angular Datatables  -->
+        <script src="/js/bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+        <!-- Angular Datatables Bootstrap -->
+        <script src="/js/bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
+        <!-- RequireJS -->
+        <script src="/js/require.js"></script>
+        <!-- Main.js -->
+        <script src="/js/main.js"></script>
+      </body>
+      </html>
