@@ -36,6 +36,9 @@ module.exports.policies = {
   },
   'AppointmentController' : {
     '*' : 'sessionAuth'
+  },
+  'MessageController' : {
+    '*' : 'sessionAuth'
   }
 
   /***************************************************************************

@@ -1,6 +1,6 @@
 define(['app'], function (app) {
 
-    app.factory('AdService', function($http){
+    app.factory('AdService',['$http', function($http){
         return {
           findAds : function(myAds){
             if(myAds){
@@ -35,5 +35,5 @@ define(['app'], function (app) {
             });
           }
         }
-    });
+    }]);
 });

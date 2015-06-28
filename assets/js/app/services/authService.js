@@ -1,6 +1,6 @@
 define(['app'], function (app) {
 
-    app.factory('AuthService', function($http){
+    app.factory('AuthService',['$http', function($http){
 
         return {
            getCurrentUser : function(){
@@ -24,5 +24,5 @@ define(['app'], function (app) {
       			});
       		}
         }
-    });
+    }]);
 });

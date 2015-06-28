@@ -1,8 +1,11 @@
 define(['app'], function (app) {
-    app.factory('UserService', function($http){
+    app.factory('UserService',['$http', function($http){
         return {
             getUserAccount : function() {
                 return $http.get('/user/account');
+            },
+            getFriendAccount : function(email) {
+                return $http.get('/user/friend?email=' + email);
             },
             editAccount : function(user) {
             	return $http({
@@ -12,5 +15,5 @@ define(['app'], function (app) {
             	});
             }
         }
-    });
+    }]);
 });

@@ -18,6 +18,11 @@ module.exports = {
 			return res.json(user);
 		})
 	},
+	friend : function(req,res){
+		User.findOne({email : req.params.all()['email']}, function(err, user){
+			return res.json(user);
+		});
+	},
 	editAccount : function(req,res){
 		User.update({ username : req.user.username }, req.body, function(err, user){
 			if(err) throw err;

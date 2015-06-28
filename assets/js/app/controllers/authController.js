@@ -1,6 +1,5 @@
-define(['app'], function (app) {
-  app.controller('authController', function($scope, $timeout, $window, $location, $routeParams, AuthService){
-    
+//must like that if we want to minify
+var authCtrl = function($scope, $timeout, $window, $location, $routeParams, AuthService){
     $scope.$on('$routeChangeSuccess', function () {
       $scope.showLoginBtn = $location.path() !== '/auth';
     });
@@ -9,7 +8,7 @@ define(['app'], function (app) {
         $scope.currentUser = data;
     });
       
-    $scope.login = function(email,password) {	
+    $scope.login = function(email,password) { 
           AuthService.login(email,password)
           .then(
                 function(result){
@@ -46,6 +45,18 @@ define(['app'], function (app) {
             }
          );
    };
+};
 
-});
+define(['app'], function(app){
+  app.controller('authController', 
+    [
+      '$scope', 
+      '$timeout', 
+      '$window', 
+      '$location', 
+      '$routeParams', 
+      'AuthService', 
+      authCtrl
+    ]
+  );
 });

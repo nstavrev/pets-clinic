@@ -32,6 +32,8 @@ define(['services/routeResolver'], function () {
                 .when('/postAd', route.resolve('ad','postAd','/postAd'))
                 .when('/ads', route.resolve('ad','ads','/ads'))
                 .when('/ads/:my', route.resolve('ad','ads','/ads'))
+                .when('/messages', route.resolve('message', 'message', '/messages'))
+                .when('/sendMessage/:email', route.resolve('message', 'sendMessage', '/sendMessage'))
         }]);
     
     app.filter('cmdate', [

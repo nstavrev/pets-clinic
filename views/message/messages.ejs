@@ -1,0 +1,22 @@
+<div class="col-md-7">
+	<div class="text-center">
+		<h1>Съобщения</h1>
+	</div>
+	<div class="border"></div>
+	<div class="messages">
+		<div ng-repeat="message in messages" class="row msg-entry">
+			<div class="col-xs-2 text-center">
+				<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRYE_TG-CV7JVFUdS6u7M9K5mN-pgB54vqI4nD6RcVe1mhtts3E" alt="Profile Image" class="msg-img">
+				<p>{{message.from.email}}</p>
+			</div>
+			<div class="col-xs-8">
+				<p>{{message.text}}</p>
+			</div>
+			<div class="col-xs-2">
+				<a ng-href="#/sendMessage/{{message.from.email}}">Виж повече</a>
+			</div>
+		</div>
+	</div>
+
+
+</div>

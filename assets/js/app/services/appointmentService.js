@@ -1,6 +1,6 @@
 define(['app'], function (app) {
 
-    app.factory('AppointmentService', function($http){
+    app.factory('AppointmentService',['$http',function($http){
         return {
           create : function(appointment) {
             return $http({
@@ -10,5 +10,5 @@ define(['app'], function (app) {
             });
           }
         }
-    });
+    }]);
 });

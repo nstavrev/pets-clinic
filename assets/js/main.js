@@ -12,6 +12,7 @@ require(
         'services/clinicService',
         'services/appointmentService',
         'services/adService',
+        'services/messageService',
         'controllers/authController'
     ],
     function () {
